@@ -1,26 +1,26 @@
 {
 	"variants": {
 		"facing=north": {
-			"model": "examplemod:block/firstblock"
+			"model": "examplemod:block/testblock"
 		},
 		"facing=south": {
-			"model": "examplemod:block/firstblock",
+			"model": "examplemod:block/testblock",
 			"y": 180
 		},
 		"facing=west": {
-			"model": "examplemod:block/firstblock",
+			"model": "examplemod:block/testblock",
 			"y": 270
 		},
 		"facing=east": {
-			"model": "examplemod:block/firstblock",
+			"model": "examplemod:block/testblock",
 			"y": 90
 		},
 		"facing=up": {
-			"model": "examplemod:block/firstblock",
+			"model": "examplemod:block/testblock",
 			"x": 90
 		},
 		"facing=down": {
-			"model": "examplemod:block/firstblock",
+			"model": "examplemod:block/testblock",
 			"x": 90
 		}
 	}
