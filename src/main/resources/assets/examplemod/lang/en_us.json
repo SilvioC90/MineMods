@@ -1,0 +1,6 @@
+{
+	"block.examplemod.testblock": "Test Block",
+	"item.examplemod.testitem": "Test Item",
+	"_comment": "Creative Tabs",
+	"itemGroup.examplemod": "Test"
+}
