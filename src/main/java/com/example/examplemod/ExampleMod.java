@@ -10,10 +10,12 @@ import com.example.examplemod.setup.ClientProxy;
 import com.example.examplemod.setup.IProxy;
 import com.example.examplemod.setup.ModSetup;
 import com.example.examplemod.setup.ServerProxy;
+import com.example.examplemod.tiles.TestBlockTile;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -58,6 +60,13 @@ public class ExampleMod {
 					new BlockItem(ModBlocks.TESTBLOCK, properties).setRegistryName("examplemod", "testblock"));
 
 			blockRegistryEvent.getRegistry().register(new TestItem());
+		}
+
+		@SubscribeEvent
+		public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
+			event.getRegistry().register(TileEntityType.Builder.create(TestBlockTile::new, ModBlocks.TESTBLOCK)
+					.build(null).setRegistryName("examplemod", "testblock"));
+
 		}
 	}
 }
