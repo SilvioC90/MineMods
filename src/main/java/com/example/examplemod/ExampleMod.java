@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.example.examplemod.blocks.ModBlocks;
 import com.example.examplemod.blocks.TestBlock;
+import com.example.examplemod.containers.TestBlockContainer;
 import com.example.examplemod.items.TestItem;
 import com.example.examplemod.setup.ClientProxy;
 import com.example.examplemod.setup.IProxy;
@@ -13,9 +14,12 @@ import com.example.examplemod.setup.ServerProxy;
 import com.example.examplemod.tiles.TestBlockTile;
 
 import net.minecraft.block.Block;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraftforge.common.extensions.IForgeContainerType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -28,6 +32,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class ExampleMod {
 	private static final Logger LOGGER = LogManager.getLogger();
 
+	public static final String MODID = "examplemod";
 	public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
 	public static ModSetup setup = new ModSetup();
 
@@ -67,6 +72,15 @@ public class ExampleMod {
 			event.getRegistry().register(TileEntityType.Builder.create(TestBlockTile::new, ModBlocks.TESTBLOCK)
 					.build(null).setRegistryName("examplemod", "testblock"));
 
+		}
+
+		@SubscribeEvent
+		public static void onContainerRegistry(final RegistryEvent.Register<ContainerType<?>> event) {
+			event.getRegistry().register(IForgeContainerType.create((windowID, inv, data) -> {
+				BlockPos blockPos = data.readBlockPos();
+				return new TestBlockContainer(ModBlocks.TESTBLOCK_CONTAINER, windowID, proxy.getClientWorld(), blockPos,
+						inv, proxy.getClientPlayer());
+			}).setRegistryName("examplemod", "testblock"));
 		}
 	}
 }
