@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 
 public enum ModToolMaterials implements IItemTier {
-	tutorial(10.0f, 9.0f, 800, 3, 25, TEST_PICKAXE);
+	tutorial(10.0f, 15.0f, 8000, 3, 40, TEST_PICKAXE);
 
 	private float attackDamage, efficiency;
 	private int durability, harvestLevel, enchantability;
