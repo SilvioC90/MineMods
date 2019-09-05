@@ -69,7 +69,7 @@ public class TestBlock extends Block {
 						tileEntity.getPos());
 			}
 		}
-		return super.onBlockActivated(state, worldIn, pos, player, handIn, hit);
+		return false;
 	}
 
 }

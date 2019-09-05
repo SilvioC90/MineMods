@@ -2,5 +2,6 @@
 	"block.examplemod.testblock": "Test Block",
 	"item.examplemod.testitem": "Test Item",
 	"_comment": "Creative Tabs",
-	"itemGroup.examplemod": "Test"
+	"itemGroup.examplemod": "Test",
+	"item.examplemod.testPickaxe": "Tutorial Pickaxe"
 }

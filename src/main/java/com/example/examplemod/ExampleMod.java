@@ -6,7 +6,9 @@ import org.apache.logging.log4j.Logger;
 import com.example.examplemod.blocks.ModBlocks;
 import com.example.examplemod.blocks.TestBlock;
 import com.example.examplemod.containers.TestBlockContainer;
+import com.example.examplemod.items.CustomPickaxeItem;
 import com.example.examplemod.items.TestItem;
+import com.example.examplemod.materials.ModToolMaterials;
 import com.example.examplemod.setup.ClientProxy;
 import com.example.examplemod.setup.IProxy;
 import com.example.examplemod.setup.ModSetup;
@@ -63,6 +65,9 @@ public class ExampleMod {
 			Item.Properties properties = new Item.Properties().group(setup.itemGroup);
 			blockRegistryEvent.getRegistry().register(
 					new BlockItem(ModBlocks.TESTBLOCK, properties).setRegistryName("examplemod", "testblock"));
+
+			blockRegistryEvent.getRegistry().register(new CustomPickaxeItem(ModToolMaterials.tutorial, -2, 6.0f,
+					new Item.Properties().group(setup.itemGroup)).setRegistryName("examplemod", "testpickaxe"));
 
 			blockRegistryEvent.getRegistry().register(new TestItem());
 		}
